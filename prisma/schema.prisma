@@ -28,13 +28,14 @@ model Receita {
 
 model IngredientesBase {
   id              Int      @id @default(autoincrement())
-  nomesIngrediente  Json[]
+  nomesingrediente Json[]  // Update to match the database column name (lowercase)
   receita         Receita? @relation(fields: [receita_id], references: [id], onDelete: Cascade)
   receita_id      Int?
   created_at      DateTime @default(now())
 
   @@map("ingredientesbase")
 }
+
 
 model Usuario {
   id Int @id @default(autoincrement())
